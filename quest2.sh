@@ -1,18 +1,15 @@
 #!/bin/bash
-qtdlinhas=0
-max=""
-touch linhasnun.txt
+read -p "Adicione 4 arquivos: " s d f g
+max=0
+nome=xingxong
 
-for((c=1;c<=4;c++))
-do
-	read -p "Adicione o arquivo $c a seguir:  " arqlinhas
-	wc -l $arqlinhas > linhasnun.txt
-	linhasnun= $(cut-d) -f1 linhasnun.txt
-       if [ $linhasnun -gt $max ]; then
-	       max=$linhasnun
-	       max=$arqlinhas 
-	fi
+	for x in $s $d $f $g;do
+		linha=$(wc -l <$x)
+		if [ $linha -gt $max ] ; then
+			max=$linha
+			nome=$x
+		fi
 done
-echo "${maior} possui mais linhas que os outros adicionados."
+echo "${nome} o que tem mais linhas contendo ${max} linhas"
 echo ""
 echo "Para seguir seu sonho basta continuar dormindo!"
